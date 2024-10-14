@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 
+
 export class umSdg extends DDDSuper(LitElement) {
 
   static get tag() {
@@ -9,12 +10,28 @@ export class umSdg extends DDDSuper(LitElement) {
 
   constructor() {
     super();
-    this.title = "";
+    this.goal = "circle";
+    this.imgSrc = new URL('../lib/svgs/goal-1.svg', import.meta.url).href;
+    this.width = "254px";
+    this.height = "254px";
+    this.label = "Sustainable developments logo";
+    this.loading = "lazy";
+    this.fetchPriority = "low";
+    this.colorOnly = "false";
+    this.isImgVisible = "true";
   }
 
   static get properties() {
     return {
-      title: { type: String },
+      goal: { type: String },
+      imgSrc: { type: String },
+      width: { type: String },
+      height: { type: String },
+      label: { type: String },
+      loading: { type: String },
+      fetchPriority: { type: String },
+      colorOnly: { type: String },
+      isImgVisible: { type: String },
     };
   }
 
@@ -41,9 +58,14 @@ export class umSdg extends DDDSuper(LitElement) {
 
   render() {
     return html`
-<div class="wrapper">
-  <div>${this.title}</div>
-  <slot></slot>
+<div class="svg-wrapper">
+  <img 
+    class="${this.isImgVisible ? '' : 'hidden'}"
+    src="${this.imgSrc}"
+    alt="${this.label}"
+    loading="${this.loading}"
+    fetchpriority="${this.fetchPriority}"
+    />
 </div>`;
   }
 
@@ -57,3 +79,4 @@ export class umSdg extends DDDSuper(LitElement) {
 }
 
 globalThis.customElements.define(umSdg.tag, umSdg);
+
