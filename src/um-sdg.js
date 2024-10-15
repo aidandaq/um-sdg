@@ -20,6 +20,19 @@ export class umSdg extends DDDSuper(LitElement) {
     this.fetchPriority = "low";
     this.colorOnly = "false";
     this.isImgVisible = "true";
+
+    switch (this.goal) {
+      case "circle":
+        this.imgSrc = new URL('../lib/svgs/circle.svg', import.meta.url).href;
+        break;
+      case "g1":
+        this.imgSrc = new URL('../lib/svgs/g1.svg', import.meta.url).href;
+        break;
+      case "g2":
+        this.imgSrc = new URL('../lib/svgs/g2.svg', import.meta.url).href;
+        break;  
+
+    }
   }
 
   static get properties() {
