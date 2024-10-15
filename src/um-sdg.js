@@ -11,7 +11,7 @@ export class umSdg extends DDDSuper(LitElement) {
 
   constructor() {
     super();
-    this.goal = "circle";
+    this.goal = ""; //changing this variable changes the icon but doesnt change in HTML
     this.imgSrc = new URL('../lib/svgs/g1.svg', import.meta.url).href;
     this.width = "254px";
     this.height = "254px";
@@ -21,7 +21,25 @@ export class umSdg extends DDDSuper(LitElement) {
     this.colorOnly = "false";
     this.isImgVisible = "true";
 
+
+    this.setGoalFromAttribute();
+
+    this.switchGoal();
+
+  }
+
+  setGoalFromAttribute() {
+    //Get the value of the goal attribute value in HTML
+    const goalAttribute = this.getAttribute('goal');
+
+    if (goalAttribute) {
+      this.goal = goalAttribute;
+    }
+  }
+
+  switchGoal() {
     switch (this.goal) {
+      
       case "circle":
         this.imgSrc = new URL('../lib/svgs/circle.svg', import.meta.url).href;
         break;
@@ -31,13 +49,17 @@ export class umSdg extends DDDSuper(LitElement) {
       case "g2":
         this.imgSrc = new URL('../lib/svgs/g2.svg', import.meta.url).href;
         break;  
+      default: 
+        this.imgSrc = new URL('../lib/svgs/circle.svg', import.meta.url).href;
+        //CONTINUE SWITCH CASES
+
 
     }
   }
 
   static get properties() {
     return {
-      goal: { type: String },
+      goal: { type: String, reflect: true },
       imgSrc: { type: String },
       width: { type: String },
       height: { type: String },
