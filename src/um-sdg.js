@@ -18,7 +18,7 @@ export class umSdg extends DDDSuper(LitElement) {
     this.label = "Sustainable developments logo";
     this.loading = "lazy";
     this.fetchPriority = "low";
-    this.colorOnly = "false";
+    this.colorOnly = false;
     this.isImgVisible = "true";
 
 
@@ -48,12 +48,54 @@ export class umSdg extends DDDSuper(LitElement) {
         break;
       case "g2":
         this.imgSrc = new URL('../lib/svgs/g2.svg', import.meta.url).href;
+        break; 
+      case "g3":
+        this.imgSrc = new URL('../lib/svgs/g3.svg', import.meta.url).href;
         break;  
+      case "g4":
+        this.imgSrc = new URL('../lib/svgs/g4.svg', import.meta.url).href;
+        break; 
+      case "g5":
+        this.imgSrc = new URL('../lib/svgs/g5.svg', import.meta.url).href;
+        break; 
+      case "g6":
+        this.imgSrc = new URL('../lib/svgs/g6.svg', import.meta.url).href;
+        break; 
+      case "g7":
+        this.imgSrc = new URL('../lib/svgs/g7.svg', import.meta.url).href;
+        break; 
+      case "g8":
+        this.imgSrc = new URL('../lib/svgs/g8.svg', import.meta.url).href;
+        break; 
+      case "g9":
+        this.imgSrc = new URL('../lib/svgs/g9.svg', import.meta.url).href;
+        break; 
+      case "g10":
+        this.imgSrc = new URL('../lib/svgs/g10.svg', import.meta.url).href;
+        break; 
+      case "g11":
+        this.imgSrc = new URL('../lib/svgs/g11.svg', import.meta.url).href;
+        break; 
+      case "g12":
+        this.imgSrc = new URL('../lib/svgs/g12.svg', import.meta.url).href;
+        break; 
+      case "g13":
+        this.imgSrc = new URL('../lib/svgs/g13.svg', import.meta.url).href;
+        break; 
+      case "g14":
+        this.imgSrc = new URL('../lib/svgs/g14.svg', import.meta.url).href;
+        break; 
+      case "g15":
+        this.imgSrc = new URL('../lib/svgs/g15.svg', import.meta.url).href;
+        break; 
+      case "g16":
+        this.imgSrc = new URL('../lib/svgs/g16.svg', import.meta.url).href;
+        break; 
+      case "g17":
+        this.imgSrc = new URL('../lib/svgs/g17.svg', import.meta.url).href;
+        break; 
       default: 
         this.imgSrc = new URL('../lib/svgs/circle.svg', import.meta.url).href;
-        //CONTINUE SWITCH CASES
-
-
     }
   }
 
@@ -66,7 +108,7 @@ export class umSdg extends DDDSuper(LitElement) {
       label: { type: String },
       loading: { type: String },
       fetchPriority: { type: String },
-      colorOnly: { type: String },
+      colorOnly: { type: Booelean },
       isImgVisible: { type: String },
     };
   }
@@ -93,6 +135,18 @@ export class umSdg extends DDDSuper(LitElement) {
   }
 
   render() {
+    if (this.colorOnly) {
+      return this.renderSqaure();
+    } else{
+      return this.renderSVG();
+    }
+  }
+  renderSqaure() {
+   return html`
+   `;
+  }
+
+  renderSVG() {
     return html`
 <div class="svg-wrapper">
   <img 
