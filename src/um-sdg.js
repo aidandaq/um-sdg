@@ -2,6 +2,7 @@ import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 
 
+
 export class umSdg extends DDDSuper(LitElement) {
 
   static get tag() {
@@ -11,7 +12,7 @@ export class umSdg extends DDDSuper(LitElement) {
   constructor() {
     super();
     this.goal = "circle";
-    this.imgSrc = new URL('../lib/svgs/goal-1.svg', import.meta.url).href;
+    this.imgSrc = new URL('../lib/svgs/g1.svg', import.meta.url).href;
     this.width = "254px";
     this.height = "254px";
     this.label = "Sustainable developments logo";
@@ -63,7 +64,7 @@ export class umSdg extends DDDSuper(LitElement) {
     class="${this.isImgVisible ? '' : 'hidden'}"
     src="${this.imgSrc}"
     alt="${this.label}"
-    loading="${this.loading}"
+    loading="lazy"
     fetchpriority="${this.fetchPriority}"
     />
 </div>`;
