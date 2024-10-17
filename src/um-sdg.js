@@ -108,7 +108,7 @@ export class umSdg extends DDDSuper(LitElement) {
       label: { type: String },
       loading: { type: String },
       fetchPriority: { type: String },
-      colorOnly: { type: Booelean },
+      colorOnly: { type: Boolean },
       isImgVisible: { type: String },
     };
   }
@@ -143,6 +143,7 @@ export class umSdg extends DDDSuper(LitElement) {
   }
   renderSqaure() {
    return html`
+   <p>hi</p>
    `;
   }
 
