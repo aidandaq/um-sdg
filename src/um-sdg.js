@@ -11,7 +11,7 @@ export class umSdg extends DDDSuper(LitElement) {
 
   constructor() {
     super();
-    this.goal = ""; //changing this variable changes the icon but doesnt change in HTML
+    this.goal = ""; 
     this.imgSrc = new URL('../lib/svgs/g1.svg', import.meta.url).href;
     this.width = "254px";
     this.height = "254px";
