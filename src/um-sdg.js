@@ -27,6 +27,7 @@ export class umSdg extends DDDSuper(LitElement) {
     this.switchGoal();
 
   }
+  
 
   setGoalFromAttribute() {
     //Get the value of the goal attribute value in HTML
@@ -39,7 +40,9 @@ export class umSdg extends DDDSuper(LitElement) {
 
   switchGoal() {
     switch (this.goal) {
-      
+      case "all":
+        this.imgSrc = new URL('../lib/svgs/all.svg', import.meta.url).href;
+        break;
       case "circle":
         this.imgSrc = new URL('../lib/svgs/circle.svg', import.meta.url).href;
         break;
@@ -141,9 +144,10 @@ export class umSdg extends DDDSuper(LitElement) {
       return this.renderSVG();
     }
   }
+
   renderSqaure() {
    return html`
-   <p>hi</p>
+
    `;
   }
 
