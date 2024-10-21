@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+<script src="script.js"></script>
 
 <head> 
   <base href="/">
@@ -35,7 +36,55 @@
 
 <body> <!--defines each goal in its own um-sdg tag-->
   <div id="demo">
-    <button id="color-only">Color Only</button>  
+
+    <div id="demo">
+      <h1 class="design">un-sdg</h1>
+      <button id="random">Randomize Goal</button>
+      <script>
+        const goals = [ //array of svg goals for the randomize goal function
+          "1", // No Poverty
+          "2", // Zero Hunger
+          "3", // Good Health and Well-being
+          "4", // Quality Education
+          "5", // Gender Equality
+          "6", // Clean Water and Sanitation
+          "7", // Affordable and Clean Energy
+          "8", // Decent Work and Economic Growth
+          "9", // Industry, Innovation and Infrastructure
+          "10", // Reduced Inequalities
+          "11", // Sustainable Cities and Communities
+          "12", // Responsible Consumption and Production
+          "13", // Climate Action
+          "14", // Life Below Water
+          "15", // Life on Land
+          "16", // Peace, Justice and Strong Institutions
+          "17" // Partnerships for the Goals
+        ];
+      
+        const randomButton = document.querySelector("#random");
+      
+        randomButton.addEventListener("click", randomizeGoal);
+      
+        function randomizeGoal() { //(supposed to) use random function to generate a random SVG goal to display
+          const randomIndex = Math.floor(Math.random() * goals.length);
+          const goal = goals[randomIndex];
+          const umSdgElement = document.getElementById("random-sdg");
+          umSdgElement.setAttribute('goal', goal);
+        }
+      </script> 
+        <!--creates an um-sdg tag with default values-->
+        <um-sdg 
+        id="random-sdg" 
+        goal="2" 
+        width="400px"
+        height="400px"
+        label="Default Values"
+        loading="eager"
+        fetchpriority="high"
+         ></um-sdg>
+
+  <button id="color-only">Color Only</button>  
+<!-- creates um-sdg tag for each goal-->
   <um-sdg goal="all"></um-sdg>
   <um-sdg goal="circle"></um-sdg>
   <um-sdg goal="g1"></um-sdg>
