@@ -8,7 +8,7 @@ export class umSdg extends DDDSuper(LitElement) {
   static get tag() {
     return "um-sdg";
   }
-
+//sets constructor values
   constructor() {
     super();
     this.goal = ""; 
@@ -24,7 +24,7 @@ export class umSdg extends DDDSuper(LitElement) {
 
     this.setGoalFromAttribute();
 
-    this.switchGoal();
+    this.switchGoal(); // switch goal based on the attribute
 
   }
   
@@ -38,7 +38,7 @@ export class umSdg extends DDDSuper(LitElement) {
     }
   }
 
-  switchGoal() {
+  switchGoal() { //sets SVG for each goal
     switch (this.goal) {
       case "all":
         this.imgSrc = new URL('../lib/svgs/all.svg', import.meta.url).href;
@@ -103,7 +103,7 @@ export class umSdg extends DDDSuper(LitElement) {
   }
 
   static get properties() {
-    return {
+    return {  //sets type of each property
       goal: { type: String, reflect: true },
       imgSrc: { type: String },
       width: { type: String },
@@ -116,7 +116,7 @@ export class umSdg extends DDDSuper(LitElement) {
     };
   }
 
-  static get styles() {
+  static get styles() { //given style sets
     return [super.styles,
     css`
       :host {
@@ -137,21 +137,21 @@ export class umSdg extends DDDSuper(LitElement) {
     `];
   }
 
-  render() {
+  render() { //unfinished, defined to render either SVG or colored square
     if (this.colorOnly) {
-      return this.renderSqaure();
+      return this.renderSquare();
     } else{
       return this.renderSVG();
     }
   }
 
-  renderSqaure() {
+  renderSquare() { //unfinished, created to render the colored squares
    return html`
 
    `;
   }
 
-  renderSVG() {
+  renderSVG() { //sets loading, fetch priority, and makes SVG visible
     return html`
 <div class="svg-wrapper">
   <img 
